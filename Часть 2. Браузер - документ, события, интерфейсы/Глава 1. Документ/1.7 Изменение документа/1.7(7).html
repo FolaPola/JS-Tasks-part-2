@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+
+    td,
+    th {
+      border: 1px solid black;
+      padding: 3px;
+      text-align: center;
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #E6E6E6;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="calendar"></div>
+
+  <script>
+    'use strict';
+    
+    function createCalendar(elem, year, month) {
+  
+  let table = document.createElement("table");
+  
+  table.innerHTML = "<tr><th>ПН</th><th>ВТ</th><th>СР</th><th>ЧТ</th><th>ПТ</th><th>СБ</th><th>ВС</th></tr>";
+  
+  let date = new Date(year, month, 0);
+  let dayLength = date.getDate();
+  date.setDate(1);
+  let firstDay = date.getDay();
+  
+  let i = 1;
+  while(i <= dayLength) {
+    
+    let tr = document.createElement("tr");
+    
+    for (let k = 1; k <= 7; k++) {
+      
+      if (k <= firstDay - 1 || i > dayLength) {
+        tr.innerHTML += "<td></td>";
+        continue;
+      }
+      
+      tr.innerHTML += `<td>${i}</td>`;
+      
+      i++;
+    }
+    
+    if (i < 8) {
+      firstDay = 0;
+    }
+    
+    table.firstElementChild.append(tr);
+  }
+  
+  elem.append(table);
+}
+
+createCalendar(calendar, 2022, 7);
+  </script>
+
+</body>
+</html>

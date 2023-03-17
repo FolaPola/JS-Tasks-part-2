@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <a name="list">The list:</a>
+  <ul>
+    <li><a href="https://google.com">https://google.com</a></li>
+    <li><a href="/tutorial">/tutorial.html</a></li>
+    <li><a href="local/path">local/path</a></li>
+    <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+    <li><a href="https://nodejs.org">https://nodejs.org</a></li>
+    <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+  </ul>
+
+  <script>
+    let elem = document.querySelectorAll('li a');
+    for (let element of elem) {
+      let href = element.getAttribute('href');
+      if (href.includes('://') && !href.includes('://internal.com')) {
+            element.style.color = 'orange';
+      }
+}
+  </script>
+
+</body>
+</html>

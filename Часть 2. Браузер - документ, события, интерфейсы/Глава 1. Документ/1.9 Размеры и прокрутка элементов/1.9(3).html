@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <style>
+    #field {
+      width: 200px;
+      border: 10px groove black;
+      background-color: #00FF00;
+      position: relative;
+    }
+
+    #ball {
+      position: absolute;
+      width: 23px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div id="field">
+    <img src="https://en.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+  </div>
+<script>
+
+let field = document.getElementById('field');
+let ball = document.getElementById('ball');
+
+let hSide = (field.clientHeight - ball.clientWidth)/2 + 'px';
+let wSide = (field.clientWidth - ball.clientWidth)/2 + 'px';
+
+ball.style.paddingTop = hSide ;
+ball.style.paddingLeft = wSide;
+</script>
+
+</body>
+
+</html>
